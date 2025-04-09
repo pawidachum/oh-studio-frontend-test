@@ -1,42 +1,31 @@
 import { NavLink } from "react-router";
 
 export default function Navigation() {
-  return (
-    <div className="flex items-center justify-center leading-10">
-      <nav className="flex bg-[#e8e5e480] rounded-full shadow-sm gap-6 ">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-full transition-colors ${
-              isActive ? "bg-white" : "hover:bg-white/50"
-            }`
-          }
-          end
-        >
-          Home
-        </NavLink>
+  const tabs = [
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+    { name: "Form", path: "/form" },
+  ];
 
+  return (
+    <div className="flex items-center justify-center h-20">
+      <nav className="flex bg-[#e8e5e480] rounded-full w-82 h-12 items-center justify-center gap-4">
+      {tabs.map((tab) => (
         <NavLink
-          to="/contact"
+          key={tab.name}
+          to={tab.path}
+          end
           className={({ isActive }) =>
-            `px-4 py-2 rounded-full transition-colors ${
+            `px-6 py-3 w-24 h-10 rounded-full flex items-center text-sm justify-center transition-colors ${
               isActive ? "bg-white" : "hover:bg-white/50"
             }`
           }
         >
-          Contact
+          {tab.name}
         </NavLink>
-        <NavLink
-          to="/form"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-full transition-colors ${
-              isActive ? "bg-white" : "hover:bg-white/50"
-            }`
-          }
-        >
-          Form
-        </NavLink>
+      ))}
+
       </nav>
     </div>
   );
-}
+  }

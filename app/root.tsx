@@ -45,10 +45,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <>
-    <Navigation/>
-    <Outlet />
+        <Navigation />
+        <Outlet />
     </>
-);
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
