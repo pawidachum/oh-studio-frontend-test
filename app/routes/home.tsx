@@ -1,6 +1,5 @@
-import { NavLink, useFetcher, useLoaderData } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 import type { Route } from "./+types/home";
-import { log } from "node:console";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,17 +18,17 @@ export async function loader() {
 
 export default function Home() {
   const categoryButtons = [
-    { name: "Expertise", path: "/" },
-    { name: "Branding", path: "/" },
-    { name: "Product", path: "/" },
-    { name: "DesignSystems", path: "/" },
+    { name: "Expertise", path: "" },
+    { name: "Branding", path: "" },
+    { name: "Product", path: "" },
+    { name: "DesignSystems", path: "" },
   ];
 
   const cats = useLoaderData() as { url: string }[];
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center leading-20">
+      <div className="flex flex-col items-center justify-center leading-20 h-screen">
         <p className="text-5xl sm:text-6xl px-20 text-center leading-20">
           A brand and product designer working with clients globally
         </p>
@@ -41,7 +40,7 @@ export default function Home() {
               to={button.path}
               end
               className={({ isActive }) =>
-                `px-6 py-3 w-24 h-10 bg-[#e8e5e480] rounded-full  flex items-center text-sm justify-center transition-colors ${
+                `px-6 py-3 w-24 h-10 bg-[#e8e5e480] rounded-full flex items-center text-sm justify-center transition-colors ${
                   isActive ? "bg-white" : "hover:bg-white/50"
                 }`
               }
@@ -51,9 +50,11 @@ export default function Home() {
           ))}
         </nav>
       </div>
-      <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {/* for responsive layout */}
+      {/* <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> */}
+      <div className="grid grid-cols-2 gap-4 p-4 ">
         {cats.map((cat, index) => (
-          <div key={index} className="w-full h-60 overflow-hidden rounded-lg">
+          <div key={index} className="w-full h-120 overflow-hidden rounded-lg">
             <img
               key={index}
               src={cat.url}
