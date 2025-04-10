@@ -50,12 +50,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <>
-      {/* <div className="flex flex-col mx-[10%] justify-center items-center flex-grow">
-        <Navigation />
-        <Outlet />
-      </div>
-        <Footer /> */}
-        
       <div className="min-h-screen flex flex-col">
         <div className="mx-[10%]">
           <Navigation />
