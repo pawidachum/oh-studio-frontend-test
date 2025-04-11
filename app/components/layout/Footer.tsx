@@ -1,9 +1,32 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { initWOW } from "../../wowClientOnly";
+import { PiAsteriskFill, PiAsteriskBold, PiAsteriskLight } from "react-icons/pi";
 
 function Footer() {
+const iconVariants = ['bx bxs-sun', 'bx bx-sun'];
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex((prev) => (prev + 1) % iconVariants.length);
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      initWOW();
+    }
+  }, []);
+
   return (
     <div className="flex justify-between flex-grow">
       <div className="flex items-center justify-center gap-1 mb-4">
+        <i
+          className={`bx ${iconVariants[index]} text-lg wow animate__animated animate__delay-1s animate__rotateIn animate__infinite animate__slow`}
+        />
         <i
           className="bx bx-copyright text-lg"
         />
