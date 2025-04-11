@@ -3,14 +3,13 @@ import { NavLink } from "react-router";
 export default function Navigation() {
   const tabs = [
     { name: "Home", path: "/" },
-    // { name: "Profile", path: "" },
+    { name: "Profile", path: "/profile" },
     { name: "Contact", path: "/contact" },
     { name: "Form", path: "/form" },
   ];
   return (
     <div className="flex items-center justify-center h-20">
-      {/* <nav className="flex bg-[#e8e5e480] rounded-full w-110 h-12 items-center justify-center gap-4"> */}
-      <nav className="flex bg-[#e8e5e480] rounded-full w-82 h-12 items-center justify-center gap-4">
+      <nav className="flex bg-[#e8e5e480] rounded-full w-110 h-12 items-center justify-center gap-4">
         {tabs.map((tab) => (
           <NavLink
             key={tab.name}
