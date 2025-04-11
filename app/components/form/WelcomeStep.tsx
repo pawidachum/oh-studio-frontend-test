@@ -12,7 +12,7 @@ function WelcomeStep({ onNext }: WelcomeStepProps) {
       <div className="flex items-center">
         <button
           onClick={onNext}
-          className="flex items-center justify-center bg-[#64748c] text-white px-4 py-2 rounded-xl hover:bg-[#748499] hover:ring-[#748499] ring-2 ring-[#64748c] border border-[#64748c] ring-offset-2 ring-offset-white shadow-inner"
+          className="bg-[#64748c] text-white px-4 py-2 rounded-xl hover:bg-gray-700 hover:ring-[#748499] ring-2 ring-[#64748c] border border-[#64748c] ring-offset-2 ring-offset-white shadow-inner"
         >
           Next
         </button>

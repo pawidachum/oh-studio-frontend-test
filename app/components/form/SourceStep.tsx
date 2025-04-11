@@ -13,13 +13,13 @@ function SourceStep({ onNext, onBack, selectedSource, onSelectSource }: SourceSt
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-2">How did you hear about us first?</h2>
-      <p className="text-gray-700 mb-6">Please select one of the following options:</p>
+      <p className="text-[#64748c] mb-6">Please select one of the following options:</p>
       
       <div className="space-y-3 mb-6">
         {sources.map((source) => (
           <div 
             key={source}
-            className="flex items-center border border-gray-300 rounded-md p-3 cursor-pointer hover:bg-gray-50"
+            className="flex items-center border border-gray-300 rounded-md p-3 cursor-pointer bg-gray-50 hover:bg-gray-100"
             onClick={() => onSelectSource(source)}
           >
             <div className="h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center mr-3">
@@ -35,7 +35,7 @@ function SourceStep({ onNext, onBack, selectedSource, onSelectSource }: SourceSt
       <div className="flex justify-between">
         <button
           onClick={onBack}
-          className="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300"
+          className="bg-white shadow-sm text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
         >
           Back
         </button>
@@ -43,7 +43,7 @@ function SourceStep({ onNext, onBack, selectedSource, onSelectSource }: SourceSt
         <button
           onClick={onNext}
           disabled={!selectedSource}
-          className={`bg-gray-600 text-white px-6 py-2 rounded-md ${
+          className={`bg-[#64748c] text-white px-4 py-2 rounded-md shadow-sm ${
             selectedSource ? "hover:bg-gray-700" : "opacity-50 cursor-not-allowed"
           }`}
         >
