@@ -55,11 +55,11 @@ export default function App() {
           <Navigation />
         </div>
 
-        <main className="flex-grow flex justify-center items-center mx-[10%]">
+        <main className="flex-grow flex justify-center items-center mx-[5%]">
           <Outlet />
         </main>
 
-        <footer className="mx-[10%]">
+        <footer className="mx-[5%]">
           <Footer />
         </footer>
       </div>

@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center w-400">
-        <div className="flex flex-col items-center justify-center leading-20 w-150 h-200 gap-8">
+        <div className="flex flex-col items-center justify-center leading-20 w-200 h-200 gap-8">
           <p className="text-5xl font-semibold sm:text-6xl px-20 text-center leading-20">
             A brand and product designer working with clients globally
           </p>
@@ -55,7 +55,7 @@ export default function Home() {
 
         {/* for responsive layout */}
         {/* <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 w-full">
           {cats.map((cat, index) => (
             <div
               key={index}
