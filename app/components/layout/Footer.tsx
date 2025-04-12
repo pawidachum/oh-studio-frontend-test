@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { initWOW } from "../../wowClientOnly";
-import { PiAsteriskFill, PiAsteriskBold, PiAsteriskLight } from "react-icons/pi";
 
 function Footer() {
 const iconVariants = ['bx bxs-sun', 'bx bx-sun'];
