@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import type { Route } from "./+types/home";
 import { useState, useEffect } from "react";
 import { initWOW } from "../wowClientOnly";
@@ -28,7 +28,7 @@ export default function Home() {
     "Design Systems",
   ];
 
-  const cats = useLoaderData() as { url: string }[];
+  const cats = useLoaderData() as { id: string; url: string }[];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -66,7 +66,7 @@ export default function Home() {
             {cats.map((cat, index) => (
               <div
                 key={index}
-                className="w-full h-120 overflow-hidden rounded-lg"
+                className="relative w-full h-120 overflow-hidden rounded-lg group cursor-pointer"
               >
                 <img
                   key={index}
@@ -75,6 +75,20 @@ export default function Home() {
                   className="rounded-lg w-full h-full object-cover"
                   loading="lazy"
                 />
+                
+                <Link
+                  to={`/cat?img=${encodeURIComponent(cat.url)}&id=${cat.id}`}
+                >
+                  <div className="absolute inset-0 bg-white/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+
+                  <div className="absolute top-2 left-2 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    {`Cat ${cat.id}`}
+                  </div>
+
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                    <i className="bx bx-right-top-arrow-circle text-white text-2xl"></i>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
