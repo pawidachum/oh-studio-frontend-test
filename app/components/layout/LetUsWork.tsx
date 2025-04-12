@@ -1,12 +1,20 @@
 import { useEffect } from "react";
-import { initWOW } from "../../wowClientOnly";
 
 function LetUsWork() {
- useEffect(() => {
-    if (typeof window !== "undefined") {
-      initWOW();
-    }
-  }, []);
+
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    import('wowjs').then((wowModule) => {
+      const WOW = wowModule.default;
+      if (typeof WOW === 'function') {
+        const wow = new WOW();
+        wow.init();
+      }
+    }).catch(err => {
+      console.warn('Failed to load WOW.js:', err);
+    });
+  }
+}, []);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-2">
