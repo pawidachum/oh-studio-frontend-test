@@ -55,7 +55,7 @@ export default function App() {
   return (
     <>
       <div className="min-h-screen flex flex-col">
-        <div className="mx-[10%]">
+        <div className="mx-[10%] sticky top-0 z-10">
           <Navigation />
         </div>
 

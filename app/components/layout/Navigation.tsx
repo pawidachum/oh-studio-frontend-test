@@ -9,7 +9,7 @@ export default function Navigation() {
   ];
   return (
     <div className="flex items-center justify-center h-20">
-      <nav className="flex bg-[#e8e5e480] rounded-full w-110 h-12 items-center justify-center gap-4">
+      <nav className="flex bg-[#e8e5e480] rounded-full w-110 h-12 items-center justify-center gap-4 backdrop-blur-sm">
         {tabs.map((tab) => (
           <NavLink
             key={tab.name}
