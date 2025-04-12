@@ -1,4 +1,3 @@
-import React from 'react'
 interface CompanySizeStepProps {
   onNext: () => void;
   onBack: () => void;
