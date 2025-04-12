@@ -87,7 +87,7 @@ export default function Home() {
                   </div>
 
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                    <i className="bx bx-right-top-arrow-circle text-white text-2xl"></i>
+                    <i className="bx bxs-right-top-arrow-circle text-white text-5xl"></i>
                   </div>
                 </Link>
               </div>
@@ -100,17 +100,9 @@ export default function Home() {
             {activeTab} section coming soon...
           </div>
         )}
-{/* 
-        <div className="flex flex-col items-center justify-center h-100 gap-2">
-          <p className="text-3xl wow animate__animated animate__fadeInUp animate__fast animate__delay-1s">
-            Let's work together.
-          </p>
-          <p className="text-3xl text-gray-400 wow animate__animated animate__fadeInUp animate__fast animate__delay-2s">
-            Get in touch
-          </p>
-        </div> */}
+
         <div className="text-3xl flex flex-col items-center justify-center h-100 gap-2">
-        <LetUsWork />
+          <LetUsWork />
         </div>
       </div>
     </>
