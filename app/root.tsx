@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -52,11 +53,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isCatPage = location.pathname === "/cat";
+
   return (
     <>
       <div className="min-h-screen flex flex-col">
         <div className="mx-[10%] sticky top-0 z-10">
-          <Navigation />
+          {isCatPage ? null : <Navigation />}
         </div>
 
         <main className="flex-grow flex justify-center items-center mx-[5%]">
