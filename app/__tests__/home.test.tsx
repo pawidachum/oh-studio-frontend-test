@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "~/routes/home";
 import { createMemoryRouter, RouterProvider } from "react-router";
+import "whatwg-fetch";
+import { waitFor } from "@testing-library/react";
 
 jest.mock("wowjs", () => ({
   WOW: jest.fn().mockImplementation(() => ({
@@ -14,33 +16,42 @@ describe("Home Component", () => {
     jest.resetAllMocks();
   });
 
-  it("renders home page correctly with loader data", () => {
+  it("renders home page correctly with loader data", async () => {
     // Mock loader data
-    // const mockCats = [
-    //   { id: "1", url: "/cat1" },
-    //   { id: "2", url: "/cat2" },
-    // ];
+    const mockCats = [
+      { id: "1", url: "/cat1" },
+      { id: "2", url: "/cat2" },
+    ];
 
-    // // Create a memory router with loader data
-    // const router = createMemoryRouter(
-    //   [
-    //     {
-    //       path: "/",
-    //       element: <Home />,
-    //       loader: () => mockCats,
-    //     },
-    //   ],
-    //   {
-    //     initialEntries: ["/"],
-    //     initialIndex: 0,
-    //   }
-    // );
+    // Create a memory router with loader data
+    const router = createMemoryRouter(
+      [
+        {
+          path: "/",
+          element: <Home />,
+          loader: () => mockCats,
+        },
+      ],
+      {
+        initialEntries: ["/"],
+        initialIndex: 0,
+      }
+    );
 
-    // render(<RouterProvider router={router} />);
+    render(<RouterProvider router={router} />);
+    screen.debug();
 
-    // Use an element you expect to see
-    // expect(screen.getByText("Categories")).toBeInTheDocument();
-    // expect(screen.getByText("/cat1")).toBeInTheDocument();
-    // expect(screen.getByText("/cat2")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          /A brand and product designer working with clients globally/i
+        )
+      ).toBeInTheDocument();
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText("Cat 1")).toBeInTheDocument();
+      expect(screen.getByText("Cat 2")).toBeInTheDocument();
+    });
   });
 });
