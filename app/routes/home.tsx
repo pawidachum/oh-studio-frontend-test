@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router";
 import type { Route } from "./+types/home";
 import { useState, useEffect } from "react";
 import { initWOW } from "../wowClientOnly";
+import LetUsWork from "~/components/layout/LetUsWork";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -75,7 +76,7 @@ export default function Home() {
                   className="rounded-lg w-full h-full object-cover"
                   loading="lazy"
                 />
-                
+
                 <Link
                   to={`/cat?img=${encodeURIComponent(cat.url)}&id=${cat.id}`}
                 >
@@ -99,7 +100,7 @@ export default function Home() {
             {activeTab} section coming soon...
           </div>
         )}
-
+{/* 
         <div className="flex flex-col items-center justify-center h-100 gap-2">
           <p className="text-3xl wow animate__animated animate__fadeInUp animate__fast animate__delay-1s">
             Let's work together.
@@ -107,6 +108,9 @@ export default function Home() {
           <p className="text-3xl text-gray-400 wow animate__animated animate__fadeInUp animate__fast animate__delay-2s">
             Get in touch
           </p>
+        </div> */}
+        <div className="text-3xl flex flex-col items-center justify-center h-100 gap-2">
+        <LetUsWork />
         </div>
       </div>
     </>
